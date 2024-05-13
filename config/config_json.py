@@ -25,5 +25,7 @@ def showPassword(password):
     else:
         return False
 
-with open('config\\nama.json', 'r') as nama_nama:
+with open('config\\name.json', 'r') as nama_nama:
     nama = json.load(nama_nama)
+    
+    print(nama)
