@@ -38,15 +38,17 @@ def absen_kelas_10():
 def ubah_password():
     if request.method == 'POST':
         data = request.json
-        kelas = data['kelas']
-        newPw = data['newPassword']
+        kelas = data.get('kelas')
+        newPw = data.get('newPassword')
         
-        if kelas and newPw is not None:
-            config_json.changePassword(kelas, newPw)
-            
-            return jsonify({'message' : 'Berhasil memperbarui password.'}),200
-        
-    return redirect(url_for('change_password'))
+        if kelas and newPw:
+            try:
+                config_json.changePassword(kelas, newPw)
+                return jsonify({'message' : 'Berhasil memperbarui password.'}), 200
+            except Exception as e:
+                return jsonify({'error' : str(e)}), 500
+        else:
+            return jsonify({'error' : 'Data tidak lengkap.'}), 400
 
 @app.route('/change-password')
 def change_password():
