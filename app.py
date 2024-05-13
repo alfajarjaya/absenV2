@@ -1,6 +1,7 @@
 from flask import (
     Flask, render_template, request, url_for, redirect, jsonify
 )
+import json
 
 from config import config_json
 
@@ -43,7 +44,19 @@ def ubah_password():
         
         if kelas and newPw:
             try:
-                config_json.changePassword(kelas, newPw)
+                with open('config/password.json', 'r+') as passw:
+                    data = json.load(passw)
+                
+                    if kelas == 'kelas 10':
+                        data['data']['kelas 10'] = newPw
+                    elif kelas == 'kelas 11':
+                        data['data']['kelas 11'] = newPw
+                    else:
+                        return jsonify({'error' : 'Kelas tidak valid.'}), 400
+                    
+                    passw.seek(0)
+                    json.dump(data, passw)
+                
                 return jsonify({'message' : 'Berhasil memperbarui password.'}), 200
             except Exception as e:
                 return jsonify({'error' : str(e)}), 500
