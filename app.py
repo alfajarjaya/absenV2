@@ -44,18 +44,12 @@ def ubah_password():
         
         if kelas and newPw:
             try:
-                with open('config/password.json', 'r+') as passw:
-                    data = json.load(passw)
+                with open('config/password.json', 'r') as passw:
+                    a = json.load(passw)
+                    a['data'][kelas] = newPw
                 
-                    if kelas == 'kelas 10':
-                        data['data']['kelas 10'] = newPw
-                    elif kelas == 'kelas 11':
-                        data['data']['kelas 11'] = newPw
-                    else:
-                        return jsonify({'error' : 'Kelas tidak valid.'}), 400
-                    
-                    passw.seek(0)
-                    json.dump(data, passw)
+                with open('config/password.json', 'w') as passw:
+                    json.dump(a, passw)
                 
                 return jsonify({'message' : 'Berhasil memperbarui password.'}), 200
             except Exception as e:
