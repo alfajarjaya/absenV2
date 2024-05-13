@@ -25,7 +25,59 @@ def showPassword(password):
     else:
         return False
 
-with open('config\\name.json', 'r') as nama_nama:
-    nama = json.load(nama_nama)
+nama = {
+  "nama": [
+    "Chelsa",
+    "Aviva",
+    "Fachri",
+    "Fely",
+    "Tiara",
+    "Nanda",
+    "Renggi",
+    "Nicholas",
+    "Ikrar",
+    "Rangga",
+    "Felix",
+    "Bagus",
+    "Gentar",
+    "Bayu",
+    "Nadhin",
+    "Dika",
+    "Bintari",
+    "Nadia",
+    "Greta",
+    "Putri",
+    "Bagas",
+    "Syahrul",
+    "Azmi",
+    "Fauzan"
+  ],
+  "kelas": [
+    "X DPIB 1",
+    "X DPIB 1",
+    "X DPIB 2",
+    "X DPIB 2",
+    "X DPIB 3",
+    "X DPIB 3",
+    "X DPIB 3",
+    "X DPIB 3",
+    "X TKR 1",
+    "X TKR 3",
+    "X TKR 3",
+    "X TBSM 1",
+    "X TBSM 1",
+    "X TBSM 2",
+    "X TBSM 2",
+    "X TBSM 2",
+    "X TKJ 1",
+    "X TKJ 2",
+    "X TKJ 2",
+    "X TKJ 3",
+    "X TKJ 3",
+    "X DKV 1",
+    "X DKV 2",
+    "X DKV 3"
+  ]
+}
+
     
-    print(nama)
