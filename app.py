@@ -18,7 +18,7 @@ def menu_kelas_10():
 def confirmPassword():
     if request.method == 'POST':
         password = request.form.get('password')
-        result = config_json.showPassword(password)
+        result = config_json.PasswordManager.showPassword(password)
         
         if result == 'kelas 10':
             return redirect(url_for('absen_kelas_10'))

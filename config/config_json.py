@@ -1,7 +1,7 @@
 import json
 
 def changePassword(kelas, password):
-    with open('config\\password.json', 'r') as passw:
+    with open('config/password.json', 'r') as passw:
         data = json.load(passw)
     
     if kelas == 'kelas 10':
@@ -11,11 +11,11 @@ def changePassword(kelas, password):
     else:
         return None
     
-    with open('config\\password.json', 'w') as passw:
+    with open('config/password.json', 'w') as passw:
         json.dump(data, passw)
         
 def showPassword(password):
-    with open('config\\password.json', 'r') as passw:
+    with open('config/password.json', 'r') as passw:
         data = json.load(passw)
     
     if password == data['data']['kelas 10']:
@@ -24,6 +24,8 @@ def showPassword(password):
         return 'kelas 11'
     else:
         return False
+    
+showPassword('ok')
 
 nama = {
   "nama": [
