@@ -1,3 +1,17 @@
+#my-form {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+    .l {
+        list-style: none;
+
+        .l-i {
+            margin: 20px 0px;
+        }
+    }
+}
+
 select {
     width: 250px;
     padding: 10px;

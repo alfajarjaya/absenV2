@@ -9,7 +9,7 @@ body {
     height: 25vh;
 }
 
-input[type="password"] {
+input[type="password"], input[type="text"] {
     width: 250px;
     padding: 10px;
     border: 1px solid #000;
