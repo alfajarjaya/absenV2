@@ -1,4 +1,3 @@
-# config/connectDB.py
 from config.models import db, Password
 
 def changePassword(kelas, newPassword):

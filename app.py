@@ -1,4 +1,3 @@
-# app.py
 from flask import Flask, render_template, request, url_for, redirect, jsonify
 from config import config_json, connectDB
 from config.models import init_db, db, Password
@@ -52,6 +51,10 @@ def ubah_password():
 @app.route('/change-password')
 def change_password():
     return render_template('changePw.html')
+
+@app.route('/jadwal-latihan')
+def jadwalLatihan():
+    return render_template('jadwal.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

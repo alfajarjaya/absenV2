@@ -52,5 +52,32 @@ body {
                 width: 100%;
             }
         }
+        width: 100%;
+
+        .h-jd {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            background: var(--navbar);
+            color: var(--bg);
+            padding: 10px 20px;
+            margin: 0px 20px;
+            border-radius: 10px;
+        }
+        .b-jd {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            background: var(--navbar);
+            color: var(--bg);
+            padding: 10px 20px;
+            margin: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .t {
+            text-align: center;
+            margin: 0px 20px;
+        }
     }
 }

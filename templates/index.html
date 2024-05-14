@@ -62,17 +62,17 @@
                                 </a>
                             </li>
                             <li class="l-i">
-                                <a href="" class="active">
+                                <a href="#" class="active">
                                     Kelas 11
                                 </a>
                             </li>
                             <li class="l-i">
-                                <a href="" class="active">
+                                <a href="#" class="active">
                                     Kelas 12
                                 </a>
                             </li>
                             <li class="l-i">
-                                <a href="" class="active">
+                                <a href="{{ url_for('jadwalLatihan') }}" class="active">
                                     Jadwal Latihan
                                 </a>
                             </li>
@@ -101,9 +101,9 @@
                 <ul>
                     <li><a href="{{ url_for('index') }}" class="active">Dashboard</a></li>
                     <li><a href="{{ url_for('menu_kelas_10') }}">Kelas 10</a></li>
-                    <li><a href="">Kelas 11</a></li>
-                    <li><a href="">Kelas 12</a></li>
-                    <li><a href="">Jadwal Latihan</a></li>
+                    <li><a href="#">Kelas 11</a></li>
+                    <li><a href="#">Kelas 12</a></li>
+                    <li><a href="{{ url_for('jadwalLatihan') }}">Jadwal Latihan</a></li>
                     <li><a href="{{ url_for('confirmPassword') }}">Lainnya</a></li>
                 </ul>
             </nav>
