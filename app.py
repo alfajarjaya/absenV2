@@ -44,12 +44,7 @@ def ubah_password():
         
         if kelas and newPw:
             try:
-                with open('config/password.json', 'r') as passw:
-                    a = json.load(passw)
-                    a['data'][kelas] = newPw
-                
-                with open('config/password.json', 'w') as passw:
-                    json.dump(a, passw)
+                config_json.changePassword(kelas, newPw)
                 
                 return jsonify({'message' : 'Berhasil memperbarui password.'}), 200
             except Exception as e:

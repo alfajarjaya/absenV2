@@ -1,16 +1,28 @@
 import json
         
+def changePassword(kelas, newPassword):
+  if kelas == 'kelas 10':
+    with open('config/password_kelas10.json', 'w') as pass_10:
+      json.dump({'data': {'kelas 10': newPassword}}, pass_10)
+  if kelas == 'kelas 11':
+    with open('config/password_kelas11.json', 'w') as pass_11:
+      json.dump({'data': {'kelas 11': newPassword}}, pass_11)
+  
+  return None
 def showPassword(password):
-    with open('config/password.json', 'r') as passw:
-        data = json.load(passw)
+    with open('config/password_kelas10.json', 'r') as pass_10:
+        dataPassword_10 = json.load(pass_10)
+        
+    with open('config/password_kelas11.json', 'r') as pass_11:
+      dataPassword_11 = json.load(pass_11)
     
-    if password == data['data']['kelas 10']:
+    if password == dataPassword_10['data']['kelas 10']:
         return 'kelas 10'
-    elif password == data['data']['kelas 11']:
+    elif password == dataPassword_11['data']['kelas 11']:
         return 'kelas 11'
     else:
         return False
-    
+      
 nama = {
   "nama": [
     "Chelsa",
