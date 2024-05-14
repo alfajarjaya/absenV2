@@ -1,11 +1,10 @@
-from flask import (
-    Flask, render_template, request, url_for, redirect, jsonify
-)
-import json
-
-from config import config_json
+# app.py
+from flask import Flask, render_template, request, url_for, redirect, jsonify
+from config import config_json, connectDB
+from config.models import init_db, db, Password
 
 app = Flask(__name__)
+init_db(app)
 
 @app.route('/')
 def index():
@@ -20,7 +19,6 @@ def confirmPassword():
     if request.method == 'POST':
         password = request.form.get('password')
         result = config_json.showPassword(password)
-        
         if result == 'kelas 10':
             return redirect(url_for('absen_kelas_10'))
         if result == 'kelas 11':
@@ -43,22 +41,17 @@ def ubah_password():
         newPw = data.get('newPassword')
         
         if kelas and newPw:
-            try:
-                config_json.changePassword(kelas, newPw)
-                
-                return jsonify({'message' : 'Berhasil memperbarui password.'}), 200
-            except Exception as e:
-                return jsonify({'error' : str(e)}), 500
+            result = connectDB.changePassword(kelas, newPw)
+            if result is None:
+                return jsonify({'message': 'Berhasil memperbarui password.'}), 200
+            else:
+                return jsonify(result), 500
         else:
-            return jsonify({'error' : 'Data tidak lengkap.'}), 400
+            return jsonify({'error': 'Data tidak lengkap.'}), 400
 
 @app.route('/change-password')
 def change_password():
     return render_template('changePw.html')
 
-        
 if __name__ == '__main__':
-    app.run(
-        host='0.0.0.0',
-        debug=True
-    )
+    app.run(host='0.0.0.0', debug=True)
